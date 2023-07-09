@@ -7,24 +7,30 @@ public class RewardValueTests {
     @Test
     void create_with_cash_value() {
         double cashValue = 100;
-        var rewardValue = new RewardValue(cashValue);
+        var rewardValue = new rewardvalue(cashValue);
         assertEquals(cashValue, rewardValue.getCashValue());
     }
 
     @Test
     void create_with_miles_value() {
         int milesValue = 10000;
-        var rewardValue = new RewardValue(milesValue);
+        var rewardValue = new rewardvalue(milesValue);
         assertEquals(milesValue, rewardValue.getMilesValue());
     }
 
     @Test
     void convert_from_cash_to_miles() {
-        assert false;
+        double cashValue = 100;
+        int expectedMilesValue = (int) (cashValue / rewardvalue.MILES_TO_CASH_CONVERSION_RATE);
+        var rewardValue = new rewardvalue(cashValue);
+        assertEquals(expectedMilesValue, rewardValue.getMilesValue());
     }
 
     @Test
     void convert_from_miles_to_cash() {
-        assert false;
+        int milesValue = 10000;
+        double expectedCashValue = milesValue * rewardvalue.MILES_TO_CASH_CONVERSION_RATE;
+        var rewardValue = new rewardvalue(milesValue);
+        assertEquals(expectedCashValue, rewardValue.getCashValue());
     }
 }
